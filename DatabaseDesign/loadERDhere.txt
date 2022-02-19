@@ -1,1 +1,59 @@
+1. A description of the database, including specifications on how the database will 
+be used and a general description of the data that will be stored in the database. 
+You may use descriptions from code-alongs design activities as a model.
 
+This database is to keep track of a relitively small inventory of vynil records for 
+a music store. The store sells both albums and singles.
+
+The data that will be store in the database will include the albums; songs, 
+artist(s)/band(s), label, price and release date. 
+
+There will also be a seperate table 
+for each song that will be linked to the album table and include the song title, 
+artist(s)/band(s), video URL for the song, album(s) the song first apears on 
+(have to calculate this by album release date).
+
+There will also be a table for each band that will contain the name of the band and
+each member of the band. Finally there will be a table for each artist with
+their first and last name.
+
+Each album in the database will have:
+• A list of songs on the album
+• The name of the band and/or artists that performed on the album
+• The album label
+• The price of the album
+• The album's original release date
+
+2. A list of all entities and their attributes, including:
+
+Artist:
+Artist_id PK
+first_name varchar(40)
+last_name varchar(40)
+
+Band:
+band_id PK
+artist_id FK
+band_name varchar(40)
+
+Song:
+song_id PK
+band_id FK
+title varchar(40)
+song_url varchar(40)
+artist varchar(40)
+
+Album:
+album_id PK
+song_id FK
+label varchar(40)
+price int
+release_date datetime
+
+bandArtist:
+artist_id PK, FK1
+band_id PK, FK2
+
+Record:
+album_id PK, FK1
+song_id PK, FK2
